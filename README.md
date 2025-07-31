@@ -13,3 +13,13 @@ Pre-requist
 8. python app.py  -- this will enable the rest API which can be executed from the postman
    8.1- URL -- http://127.0.0.0:5000/predict
    8.2  body data --  {"input":[5.1,1.2,3.2,3.4]} 
+
+---
+DOCKER SETUP -- Pre-requist Docker should be installed on your machine
+
+1. Once your local APIS are working we can containarized the APIS.
+2. execute the command to build the image ----  docker build -t iris
+3. run the docker ---    docker run -p 5000:5000 iris
+4. this will enable the rest API which can be executed from the postman
+   4.1 URL -- http://127.0.0.0:5000/predict
+   4.2  body data --  {"input":[5.1,1.2,3.2,3.4]}

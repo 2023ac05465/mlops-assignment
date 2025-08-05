@@ -1,7 +1,10 @@
+"""
+This module it to train the model
+"""
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
-from sklearn.metrics import mean_squared_error  
+from sklearn.metrics import mean_squared_error
 import joblib
 import mlflow
 
@@ -11,12 +14,10 @@ data.head()
 # pre processing of the data set
 data = data.dropna()
 data = data.drop(columns=['ocean_proximity'])
-data.columns
+# data.columns
 x = data.drop(columns=['median_house_value'])
 y = data['median_house_value']
 x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_state=42)
-
-
 
 # after the split, we need to perform the experiments
 

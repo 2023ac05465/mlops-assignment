@@ -5,7 +5,7 @@ import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
 from sklearn.linear_model import LinearRegression
-from sklearn.tree import DecisionTreeRegressor 
+from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 import joblib
 import mlflow
@@ -21,7 +21,7 @@ data = data.dropna()
 
 # Encode categorical features
 train_df_object = data.select_dtypes(include='object')
-encoders = {} 
+encoders = {}
 for col in train_df_object.columns:
     le = LabelEncoder()
     data[col] = le.fit_transform(data[col])
@@ -36,12 +36,15 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 
 
 # Before we start training the model, we will set up MLflow to track our experiments.
-# Expirement : In MFLow an expiremnt act as a container that holds all the runs
-# RUN: A run represents a single execution of a machine learning model, includiing its parameters, metrics and results.
+# Experiment : In MLflow an experiment acts as a container that holds all the runs
+# RUN: A run represents a single execution of a machine learning model, 
+# including its parameters, metrics and results.
 
-# By default MFLOW will log the runs in the local file system under mlruns directory
+# By default MLflow will log the runs in the local file system under mlruns directory
 
 def train_with_linear_regression():
+    """
+    Train a linear regression model and log the results using MLflow"""
     # Set the experiment name
     mlflow.set_experiment("Housing_Price_Prediction_Linear_Regression")
     mlflow.set_tracking_uri("http://localhost:5000")
@@ -51,7 +54,8 @@ def train_with_linear_regression():
         "fit_intercept": True,
     }
 
-    # After setting the  experiment, we can start tracking various aspects of our model such as parameters, metrics, and model itself.
+    # After setting the  experiment, we can start tracking various aspects of our model 
+    # such as parameters, metrics, and model itself.
     with mlflow.start_run():
 
         # set expreiment tags
@@ -76,6 +80,9 @@ def train_with_linear_regression():
 
 
 def train_with_decision_tree():
+    """
+    Train a decision tree model and log the results using MLflow
+    """
     mlflow.set_experiment("Housing_Price_Prediction_Decision_Tree")
     mlflow.set_tracking_uri("http://localhost:5000")
     # Define model hyperparameters
@@ -86,7 +93,8 @@ def train_with_decision_tree():
         "min_samples_leaf": 1
     }
 
-    # After setting the  experiment, we can start tracking various aspects of our model such as parameters, metrics, and model itself.
+    # After setting the  experiment, we can start tracking various aspects of our model 
+    # such as parameters, metrics, and model itself.
     with mlflow.start_run():
 
         # set expreiment tags

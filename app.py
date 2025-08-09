@@ -15,12 +15,16 @@ logs = []
 
 # Prometheus Metrics
 REQUEST_COUNT = Counter("predict_requests_total", "Total prediction requests")
-LINEARREGRESSION_REQUEST_LATENCY = Histogram("predict_linearregression_request_latency_seconds", "Latency for lineargregression model prediction requests")
-DECISIONTREE_REQUEST_LATENCY = Histogram("predict_decisiontree_request_latency_seconds", "Latency for decisiontree model prediction requests")
+LINEARREGRESSION_REQUEST_LATENCY = Histogram("predict_linearregression_request_latency_seconds", 
+                                             "Latency for lineargregression model prediction requests")
+DECISIONTREE_REQUEST_LATENCY = Histogram("predict_decisiontree_request_latency_seconds", 
+                                         "Latency for decisiontree model prediction requests")
 
 @LINEARREGRESSION_REQUEST_LATENCY.time()
 @app.route('/predict/linearregression', methods=['POST'])
 def predict_linear_regression():
+    """ Predict using the linear regression model
+    """
     REQUEST_COUNT.inc()
     data = request.json
     input_data = np.array(data['input']).reshape(1, -1)
@@ -39,6 +43,8 @@ def predict_linear_regression():
 @DECISIONTREE_REQUEST_LATENCY.time()
 @app.route('/predict/decisiontree', methods=['POST'])
 def predict_decision_tree():
+    """ Predict using the decision tree model
+    """
     REQUEST_COUNT.inc()
     data = request.json
     input_data = np.array(data['input']).reshape(1, -1)
@@ -55,11 +61,18 @@ def predict_decision_tree():
 
 @app.route("/logs")
 def get_logs():
+    """ 
+    Get the logs of predictions
+    
+    """
     return logs
 
 # Metrics endpoint for Prometheus
 @app.route("/metrics")
 def metrics():
+    """
+    Expose metrics for Prometheus
+    """
     return generate_latest(), 200, {"Content-Type": CONTENT_TYPE_LATEST}
 
 

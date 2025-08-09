@@ -70,9 +70,7 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    {"input":[-122.23,37.88,29.0,880.0,129.0,322.0,126.0,4.3252]}
    ```
 
-  ```
-
- 8. **Kuberneetes Deployment**
+8. **Kuberneetes Deployment:**
 
     Deploy Flask app, Prometheus, and Grafana:
     ```bash

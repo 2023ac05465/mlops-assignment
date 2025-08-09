@@ -104,7 +104,7 @@ def train_with_decision_tree():
             mlflow.log_param(param, value)
 
         print("Training model...")
-        model = DecisionTreeRegressor(random_state=44,  max_depth=None, min_samples_split=2, min_samples_leaf=1)
+        model = DecisionTreeRegressor(random_state=44, min_samples_split=2, min_samples_leaf=1)
         model.fit(x_train, y_train.values.ravel())  # Flatten y_train to 1D array
         y_pred =  model.predict(x_test)
 

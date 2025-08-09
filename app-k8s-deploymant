@@ -2,6 +2,7 @@ apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: housing-flask-app
+  namespace: mlops-assignment
 spec:
   replicas: 1
   selector:
@@ -24,6 +25,7 @@ apiVersion: v1
 kind: Service
 metadata:
   name: housing-flask-service
+  namespace: mlops-assignment
 spec:
   selector:
     app: housing-flask-app

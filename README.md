@@ -37,7 +37,7 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
 
 4. **start the MFLOW**
    ```bash
-   mlflow ui
+   mlflow ui  # this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
    ```
 
    
@@ -53,23 +53,15 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    python app.py
    ```
   
-7. **Kuberneetes Deployment**
-
-   Deploy Flask app, Prometheus, and Grafana:
-   ```bash
-   kubectl apply -f monitoring-deployment.yaml
-   kubectl apply -f k8s-deployment.yaml
-   ```
-
-8. **Test the API:**
+7. **Test the API:**
    Send a POST request to:
 
    ```
-   http://127.0.0.0:5000/predict/linearregression
+   http://127.0.0.0:8000/predict/linearregression
    ```
 
    ```
-   http://127.0.0.0:5000/predict/decisiontreecd
+   http://127.0.0.0:8000/predict/decisiontreecd
    ```
 
    With sample JSON:
@@ -79,5 +71,13 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    ```
 
   ```
-   
-8. mflow ui  --- this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
+
+
+8. **Kuberneetes Deployment**
+
+   Deploy Flask app, Prometheus, and Grafana:
+   ```bash
+   kubectl apply -f monitoring-deployment.yaml
+   kubectl apply -f k8s-deployment.yaml
+   ```
+

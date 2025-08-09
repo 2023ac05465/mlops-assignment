@@ -37,7 +37,7 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
 
 4. **start the MFLOW**
    ```bash
-   mflow ui
+   mlflow ui
    ```
 
    

@@ -1,3 +1,6 @@
+"""
+This module it to train the model
+"""
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -111,4 +114,3 @@ if __name__ == "__main__":
     train_with_linear_regression()
     train_with_decision_tree()
     print("Training completed and models saved.")
-

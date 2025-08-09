@@ -42,17 +42,17 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    ```
    This will save models and preprocessors under the `models/` folder.
 
-4. **Run the FastAPI app: Locally**
-   
+5. **Run the FastAPI app: Locally**
+   ```bash
+   python app.py
+   ```
+  
+6. **Kuberneetes Deployment**
+
    Deploy Flask app, Prometheus, and Grafana:
    ```bash
    kubectl apply -f monitoring-deployment.yaml
    kubectl apply -f k8s-deployment.yaml
-   ```
-6. **Kuberneetes Deployment**
-
-   ```bash
-   python app.py
    ```
 
 7. **Test the API:**

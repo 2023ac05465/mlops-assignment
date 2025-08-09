@@ -34,20 +34,26 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    mv data.csv Housing.csv
    dvc add Housing.csv
    ```
+
+4. **start the MFLOW**
+   ```bash
+   mflow ui
+   ```
+
    
-4. **Train and save the models:**
+5. **Train and save the models:**
 
    ```bash
    python train.py
    ```
    This will save models and preprocessors under the `models/` folder.
 
-5. **Run the FastAPI app: Locally**
+6. **Run the FastAPI app: Locally**
    ```bash
    python app.py
    ```
   
-6. **Kuberneetes Deployment**
+7. **Kuberneetes Deployment**
 
    Deploy Flask app, Prometheus, and Grafana:
    ```bash
@@ -55,7 +61,7 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    kubectl apply -f k8s-deployment.yaml
    ```
 
-7. **Test the API:**
+8. **Test the API:**
    Send a POST request to:
 
    ```

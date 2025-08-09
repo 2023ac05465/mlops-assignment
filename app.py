@@ -15,9 +15,9 @@ logs = []
 
 # Prometheus Metrics
 REQUEST_COUNT = Counter("predict_requests_total", "Total prediction requests")
-LINEARREGRESSION_REQUEST_LATENCY = Histogram("predict_linearregression_request_latency_seconds", 
+LINEARREGRESSION_REQUEST_LATENCY = Histogram("predict_linearregression_request_latency_seconds",
                                              "Latency for lineargregression model prediction requests")
-DECISIONTREE_REQUEST_LATENCY = Histogram("predict_decisiontree_request_latency_seconds", 
+DECISIONTREE_REQUEST_LATENCY = Histogram("predict_decisiontree_request_latency_seconds",
                                          "Latency for decisiontree model prediction requests")
 
 @LINEARREGRESSION_REQUEST_LATENCY.time()

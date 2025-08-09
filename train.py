@@ -37,7 +37,7 @@ x_train, x_test, y_train, y_test = train_test_split(x, y, test_size=0.2, random_
 
 # Before we start training the model, we will set up MLflow to track our experiments.
 # Experiment : In MLflow an experiment acts as a container that holds all the runs
-# RUN: A run represents a single execution of a machine learning model, 
+# RUN: A run represents a single execution of a machine learning model,
 # including its parameters, metrics and results.
 
 # By default MLflow will log the runs in the local file system under mlruns directory
@@ -54,7 +54,7 @@ def train_with_linear_regression():
         "fit_intercept": True,
     }
 
-    # After setting the  experiment, we can start tracking various aspects of our model 
+    # After setting the  experiment, we can start tracking various aspects of our model
     # such as parameters, metrics, and model itself.
     with mlflow.start_run():
 
@@ -73,7 +73,6 @@ def train_with_linear_regression():
         mse = mean_squared_error(y_test, y_pred)
        # Log evaluation metrics
         mlflow.log_metric("mean square error", mse)
-        
         joblib.dump(model, 'model/linear_regression_model.joblib')
         #track model through mlflow
         mlflow.log_artifact('model/linear_regression_model.joblib')
@@ -93,7 +92,7 @@ def train_with_decision_tree():
         "min_samples_leaf": 1
     }
 
-    # After setting the  experiment, we can start tracking various aspects of our model 
+    # After setting the  experiment, we can start tracking various aspects of our model
     # such as parameters, metrics, and model itself.
     with mlflow.start_run():
 

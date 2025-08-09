@@ -72,12 +72,11 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
 
   ```
 
+ 8. **Kuberneetes Deployment**
 
-8. **Kuberneetes Deployment**
-
-   Deploy Flask app, Prometheus, and Grafana:
-   ```bash
-   kubectl apply -f monitoring-deployment.yaml
-   kubectl apply -f k8s-deployment.yaml
-   ```
+    Deploy Flask app, Prometheus, and Grafana:
+    ```bash
+    kubectl apply -f monitoring-deployment.yaml
+    kubectl apply -f k8s-deployment.yaml
+    ```
 

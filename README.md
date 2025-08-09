@@ -1,18 +1,78 @@
-Pre-requist 
-1. Visual Studio Code
+## Pre-requist 
+1. Visual Studio as Editor
 2. python and pip is installed
----
 
-1. Data is made part of the GIT HUB only .. this is done just to share the data with all team memebers.. other wise data should be part of some external storage like S3 or google driver
-2. Onces we checkout the repo we will have the data also present
-3. rename the data.cvs file to Housing.csv
-4. pip install -r requirements
-5. dvc add Housing.csv
-6. mflow ui  --- this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
-7. python train.py --- this will create the model
-8. python app.py  -- this will enable the rest API which can be executed from the postman
-   8.1- URL -- http://127.0.0.0:5000/predict
-   8.2  body data --  {"input":[5.1,1.2,3.2,3.4]} 
+## Project Structure
+* `train.py`: Train and save both models
+* `app.py`: FastAPI app to serve predictions and route traffic
+* `simulator.py`: Simulates multiple client requests
+* `performance.py`: Fetches logs and evaluates accuracy
+* `requirements.txt`: Dependencies
+* `Data.csv`: Dataset used to train the models
+
+## NOTE
+Data is made part of the GIT HUB only .. this is done just to share the data with all team memebers.. other wise data should be part of some external storage like S3 or google driver
+
+
+## How to use
+
+1. **Clone the repo:**
+
+   ```bash
+   git clone https://github.com/2023ac05465/mlops-assignment.git
+   cd mlops-assignment
+   ```
+
+2. **Install dependencies:**
+
+   ```bash
+   pip install -r requirements.txt
+   ```
+3. **Get the Data Set**
+   ```bash
+   mv data.csv Housing.csv
+   dvc add Housing.csv
+   ```
+   
+4. **Train and save the models:**
+
+   ```bash
+   python train.py
+   ```
+   This will save models and preprocessors under the `models/` folder.
+
+4. **Run the FastAPI app:**
+
+   ```bash
+   python app.py
+   ```
+
+5. **Test the API:**
+   Send a POST request to:
+
+   ```
+   http://127.0.0.0:5000/predict
+   ```
+
+   With sample JSON:
+
+   ```json
+   {"input":[5.1,1.2,3.2,3.4]}
+   ```
+
+6. **Simulate 100+ requests:**
+
+   ```bash
+   python simulator.py
+   ```
+
+7. **Evaluate model performance:**
+
+   ```bash
+   python performance.py
+   ```
+   
+8. mflow ui  --- this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
 
 ---
 DOCKER SETUP -- Pre-requist Docker should be installed on your machine

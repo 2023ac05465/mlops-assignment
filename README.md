@@ -34,36 +34,34 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    mv data.csv Housing.csv
    dvc add Housing.csv
    ```
+
+4. **start the MFLOW**
+   ```bash
+   mlflow ui  # this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
+   ```
+
    
-4. **Train and save the models:**
+5. **Train and save the models:**
 
    ```bash
    python train.py
    ```
    This will save models and preprocessors under the `models/` folder.
 
-5. **Run the FastAPI app: Locally**
+6. **Run the FastAPI app: Locally**
    ```bash
    python app.py
    ```
   
-6. **Kuberneetes Deployment**
-
-   Deploy Flask app, Prometheus, and Grafana:
-   ```bash
-   kubectl apply -f monitoring-deployment.yaml
-   kubectl apply -f k8s-deployment.yaml
-   ```
-
 7. **Test the API:**
    Send a POST request to:
 
    ```
-   http://127.0.0.0:5000/predict/linearregression
+   http://<IP_ADDRESS_LOCAL_MACHINE>:8000/predict/linearregression
    ```
 
    ```
-   http://127.0.0.0:5000/predict/decisiontreecd
+   http://<IP_ADDRESS_LOCAL_MACHINE>:8000/predict/decisiontreecd
    ```
 
    With sample JSON:
@@ -72,6 +70,11 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    {"input":[-122.23,37.88,29.0,880.0,129.0,322.0,126.0,4.3252]}
    ```
 
-  ```
-   
-8. mflow ui  --- this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
+8. **Kuberneetes Deployment:**
+
+    Deploy Flask app, Prometheus, and Grafana:
+    ```bash
+    kubectl apply -f monitoring-deployment.yaml
+    kubectl apply -f k8s-deployment.yaml
+    ```
+

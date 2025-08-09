@@ -9,7 +9,7 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 import joblib
 import mlflow
-
+import os
 
 # Load the dataset
 print("Loading dataset...")
@@ -48,7 +48,8 @@ def train_with_linear_regression():
     # Set the experiment name
     mlflow.set_experiment("Housing_Price_Prediction_Linear_Regression")
     mlflow.set_tracking_uri("http://localhost:5000")
-
+    # Create a directory to save the model
+    os.makedirs('model', exist_ok=True)
     # Define model hyperparameters
     params = {
         "fit_intercept": True,
@@ -84,6 +85,8 @@ def train_with_decision_tree():
     """
     mlflow.set_experiment("Housing_Price_Prediction_Decision_Tree")
     mlflow.set_tracking_uri("http://localhost:5000")
+    # Create a directory to save the model
+    os.makedirs('model', exist_ok=True)
     # Define model hyperparameters
     params = {
         "random_state": 44,

@@ -57,11 +57,11 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    Send a POST request to:
 
    ```
-   http://127.0.0.0:8000/predict/linearregression
+   http://<IP_ADDRESS_LOCAL_MACHINE>:8000/predict/linearregression
    ```
 
    ```
-   http://127.0.0.0:8000/predict/decisiontreecd
+   http://<IP_ADDRESS_LOCAL_MACHINE>:8000/predict/decisiontreecd
    ```
 
    With sample JSON:

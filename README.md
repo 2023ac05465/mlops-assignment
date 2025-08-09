@@ -59,35 +59,19 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    Send a POST request to:
 
    ```
-   http://127.0.0.0:5000/predict
+   http://127.0.0.0:5000/predict/linearregression
+   ```
+
+   ```
+   http://127.0.0.0:5000/predict/decisiontreecd
    ```
 
    With sample JSON:
 
    ```json
-   {"input":[5.1,1.2,3.2,3.4]}
+   {"input":[-122.23,37.88,29.0,880.0,129.0,322.0,126.0,4.3252]}
    ```
 
-6. **Simulate 100+ requests:**
-
-   ```bash
-   python simulator.py
-   ```
-
-7. **Evaluate model performance:**
-
-   ```bash
-   python performance.py
-   ```
+  ```
    
 8. mflow ui  --- this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
-
----
-DOCKER SETUP -- Pre-requist Docker should be installed on your machine
-
-1. Once your local APIS are working we can containarized the APIS.
-2. execute the command to build the image ----  docker build -t iris
-3. run the docker ---    docker run -p 5000:5000 iris
-4. this will enable the rest API which can be executed from the postman
-   4.1 URL -- http://127.0.0.0:5000/predict
-   4.2  body data --  {"input":[5.1,1.2,3.2,3.4]}

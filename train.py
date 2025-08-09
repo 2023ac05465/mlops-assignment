@@ -96,7 +96,6 @@ def train_with_decision_tree():
         for param, value in params.items():
             mlflow.log_param(param, value)
 
-
         print("Training model...")
         model = DecisionTreeRegressor(random_state=44,  max_depth=None, min_samples_split=2, min_samples_leaf=1)
         model.fit(x_train, y_train.values.ravel())  # Flatten y_train to 1D array
@@ -105,7 +104,6 @@ def train_with_decision_tree():
         mse = mean_squared_error(y_test, y_pred)
         # Log evaluation metrics
         mlflow.log_metric("mean square error", mse)
-    
         joblib.dump(model, 'model/decision_tree_model.joblib')
         #track model through mlflow
         mlflow.log_artifact('model/decision_tree_model.joblib')

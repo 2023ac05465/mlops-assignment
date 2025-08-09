@@ -7,9 +7,10 @@
 * `app.py`: FastAPI app to serve predictions and route traffic
 * `dockerfile`:  Container build instructions
 * `monitoring-deployment.yaml`: Monitoring stack and deployment --Prometheus and Grafana Deployment for monitoring
+* `app-k8-deployment.yaml`: K8s based deployment of docker file which contains the app.py code
 * `requirements.txt`: Dependencies
-* `Data.csv`: Dataset used to train the models
-
+* `data.csv`: Dataset used to train the models
+* `Housing.csv.dvc`: data verison file, which holds the information of from where the data need to be downloaded of the given version
 ## NOTE
 Data is made part of the GIT HUB only .. this is done just to share the data with all team memebers.. other wise data should be part of some external storage like S3 or google driver
 

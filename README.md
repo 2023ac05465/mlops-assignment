@@ -5,8 +5,8 @@
 ## Project Structure
 * `train.py`: Train and save both models
 * `app.py`: FastAPI app to serve predictions and route traffic
-* `simulator.py`: Simulates multiple client requests
-* `performance.py`: Fetches logs and evaluates accuracy
+* `dockerfile`:  Container build instructions
+* `monitoring-deployment.yaml`: Monitoring stack and deployment --Prometheus and Grafana Deployment for monitoring
 * `requirements.txt`: Dependencies
 * `Data.csv`: Dataset used to train the models
 
@@ -41,13 +41,20 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    ```
    This will save models and preprocessors under the `models/` folder.
 
-4. **Run the FastAPI app:**
+4. **Run the FastAPI app: Locally**
+   
+   Deploy Flask app, Prometheus, and Grafana:
+   ```bash
+   kubectl apply -f monitoring-deployment.yaml
+   kubectl apply -f k8s-deployment.yaml
+   ```
+6. **Kuberneetes Deployment**
 
    ```bash
    python app.py
    ```
 
-5. **Test the API:**
+7. **Test the API:**
    Send a POST request to:
 
    ```

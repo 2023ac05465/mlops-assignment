@@ -2,6 +2,7 @@
 1. Visual Studio as Editor
 2. python and pip is installed
 
+
 ## Project Structure
 * `train.py`: Train and save both models
 * `app.py`: FastAPI app to serve predictions and route traffic
@@ -39,8 +40,7 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    ```bash
    mlflow ui  # this command will start the mflow ui locally and can be accessed through URL http://127.0.0.1:5000/
    ```
-
-   
+      
 5. **Train and save the models:**
 
    ```bash
@@ -71,10 +71,11 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    ```
 
 8. **Kuberneetes Deployment:**
-
+    Deploy MFLOW as docker image
+     
     Deploy Flask app, Prometheus, and Grafana:
     ```bash
     kubectl apply -f monitoring-deployment.yaml
     kubectl apply -f k8s-deployment.yaml
     ```
-
+  

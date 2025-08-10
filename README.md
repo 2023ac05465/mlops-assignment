@@ -13,7 +13,7 @@
 * `Housing.csv.dvc`: data verison file, which holds the information of from where the data need to be downloaded of the given version
 * `model`: Holds the model [based on Logistic regression and decission tree]
 ## NOTE
-Data is made part of the GIT HUB only .. this is done just to share the data with all team memebers.. other wise data should be part of some external storage like S3 or google driver
+Data is made part of the GIT HUB only .. this is done just to share the data with all team memebers.. other wise data should be part of some external storage like S3 or google driver.
 
 
 ## How to use

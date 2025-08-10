@@ -7,8 +7,7 @@
 * `train.py`: Train and save both models
 * `app.py`: FastAPI app to serve predictions and route traffic
 * `dockerfile`:  Container build instructions
-* `monitoring-deployment.yaml`: Monitoring stack and deployment --Prometheus and Grafana Deployment for monitoring
-* `app-k8-deployment.yaml`: K8s based deployment of docker file which contains the app.py code
+* `prometheus.yml.yaml`: prometheus scrape configuration details
 * `requirements.txt`: Dependencies
 * `data.csv`: Dataset used to train the models
 * `Housing.csv.dvc`: data verison file, which holds the information of from where the data need to be downloaded of the given version
@@ -70,12 +69,17 @@ Data is made part of the GIT HUB only .. this is done just to share the data wit
    {"input":[-122.23,37.88,29.0,880.0,129.0,322.0,126.0,4.3252]}
    ```
 
-8. **Kuberneetes Deployment:**
-    Deploy MFLOW as docker image
-     
-    Deploy Flask app, Prometheus, and Grafana:
+8. **Application Deployment through Docker:**
+    Deploy mlflow-flask-app as docker image, which is developed as part of this MLOPS assignement
     ```bash
-    kubectl apply -f monitoring-deployment.yaml
-    kubectl apply -f k8s-deployment.yaml
+    docker pull gsingla294/housing_prediction:latest
+    docker run -it -p 8000:8000 gsingla294/housing_prediction:latest
+    ```
+
+    Deploy  Prometheus, and Grafana:
+    ```bash
+        docker pull prom/prometheus:latest
+        docker run -p 9090:9090   -v /root/prometheus.yaml:/etc/prometheus/prometheus.yml -v /root/prometheus-data:/prometheus   prom/prometheus
+        docker pull grafana/grafana
     ```
   

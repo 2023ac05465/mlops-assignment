@@ -7,7 +7,7 @@
 * `train.py`: Train and save both models
 * `app.py`: FastAPI app to serve predictions and route traffic
 * `dockerfile`:  Container build instructions
-* `prometheus.yml.yaml`: prometheus scrape configuration details
+* `prometheus.yml`: prometheus scrape configuration details
 * `requirements.txt`: Dependencies
 * `data.csv`: Dataset used to train the models
 * `Housing.csv.dvc`: data verison file, which holds the information of from where the data need to be downloaded of the given version

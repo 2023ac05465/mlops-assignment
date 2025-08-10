@@ -58,7 +58,7 @@ def train_with_linear_regression():
 
     # After setting the  experiment, we can start tracking various aspects of our model
     # such as parameters, metrics, and model itself.
-    with mlflow.start_run():
+    with mlflow.start_run() as run:
 
         # set expreiment tags
         mlflow.set_tags({"model": "Linear Regression", "dataset": "Housing Prices"})
@@ -77,7 +77,8 @@ def train_with_linear_regression():
         mlflow.log_metric("mean square error", mse)
         joblib.dump(model, 'model/linear_regression_model.joblib')
         #track model through mlflow
-        mlflow.log_artifact('model/linear_regression_model.joblib')
+        mlflow.log_artifact('model/linear_regression_model.joblib')  
+        mlflow.sklearn.log_model(model, "model")  # Log the model
 
 
 def train_with_decision_tree():
@@ -99,7 +100,7 @@ def train_with_decision_tree():
 
     # After setting the  experiment, we can start tracking various aspects of our model
     # such as parameters, metrics, and model itself.
-    with mlflow.start_run():
+    with mlflow.start_run() as run:
 
         # set expreiment tags
         mlflow.set_tags({"model": "Decision Tree", "dataset": "Housing Prices"})
@@ -119,6 +120,12 @@ def train_with_decision_tree():
         joblib.dump(model, 'model/decision_tree_model.joblib')
         #track model through mlflow
         mlflow.log_artifact('model/decision_tree_model.joblib')
+        mlflow.sklearn.log_model(model, "model")  # Log the model
+       # Register the model in the Model Registry
+        model_uri = f"runs:/{run.info.run_id}/model"
+        mv = mlflow.register_model(model_uri=model_uri, name="Decision_Tree_Model")
+        print(f"Model registered: name={mv.name}, version={mv.version}")
+
 
 if __name__ == "__main__":
     train_with_linear_regression()

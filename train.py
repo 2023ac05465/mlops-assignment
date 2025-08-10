@@ -1,6 +1,7 @@
 """
 This module it to train the model
 """
+import os
 import pandas as pd
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import LabelEncoder
@@ -9,7 +10,6 @@ from sklearn.tree import DecisionTreeRegressor
 from sklearn.metrics import mean_squared_error
 import joblib
 import mlflow
-import os
 
 # Load the dataset
 print("Loading dataset...")

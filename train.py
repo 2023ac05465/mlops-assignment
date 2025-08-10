@@ -58,7 +58,7 @@ def train_with_linear_regression():
 
     # After setting the  experiment, we can start tracking various aspects of our model
     # such as parameters, metrics, and model itself.
-    with mlflow.start_run() as run:
+    with mlflow.start_run():
 
         # set expreiment tags
         mlflow.set_tags({"model": "Linear Regression", "dataset": "Housing Prices"})
@@ -77,7 +77,7 @@ def train_with_linear_regression():
         mlflow.log_metric("mean square error", mse)
         joblib.dump(model, 'model/linear_regression_model.joblib')
         #track model through mlflow
-        mlflow.log_artifact('model/linear_regression_model.joblib')  
+        mlflow.log_artifact('model/linear_regression_model.joblib')
         mlflow.sklearn.log_model(model, "model")  # Log the model
 
 

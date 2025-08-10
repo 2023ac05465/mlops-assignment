@@ -84,9 +84,8 @@ def train_with_decision_tree():
     Train a decision tree model and log the results using MLflow
     """
     mlflow.set_experiment("Housing_Price_Prediction_Decision_Tree")
-    
-    # uncommet this line for local testing.
-    #mlflow.set_tracking_uri("http://localhost:5000")
+
+    mlflow.set_tracking_uri("http://10.221.248.94:5000")
     # Create a directory to save the model
     os.makedirs('model', exist_ok=True)
     # Define model hyperparameters
